@@ -18,7 +18,7 @@ while ponovo == "da":
   sve_u_redu = True
 
   if insuficijencija == "da":
-    print("Maksimalna dnevna doza tri grama!")
+    print("Insuficijencija jetre - oprez, proveriti dozu u SmPC")
     sve_u_redu = False
   if alkohol == "da":
     print("Oprez!")

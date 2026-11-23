@@ -1,6 +1,7 @@
 # Educational exercise: fictional invoice lines only. Not for real use.
 import re
 import pandas as pd
+from datetime import date
 
 # 1. Podaci (izmišljene fakture)
 fakture = ["Paracetamol 500mg x20 | LOT: A1234 | EXP:03/2027 | kol: 10",
@@ -40,9 +41,11 @@ for red in fakture:
 tabela = pd.DataFrame(redovi)
 
 # 5. Računamo koliko meseci je ostalo do isteka roka
-# NAPOMENA: 24323 je novembar 2026 (2026 * 12 + 11), ukucano ručno.
+# Današnji datum uzimamo iz sistema (date.today())
+danas = date.today()
 tabela["ukupno_meseci"] = tabela["godina"] * 12 + tabela["mesec"]
-tabela["do_isteka"] = tabela["ukupno_meseci"] - 24323
+danas_meseci = danas.year * 12 + danas.month
+tabela["do_isteka"] = tabela["ukupno_meseci"] - danas_meseci
 tabela["status"] = tabela["do_isteka"].apply(status_roka)
 
 print(tabela)

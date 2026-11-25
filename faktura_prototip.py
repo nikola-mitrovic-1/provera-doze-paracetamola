@@ -4,14 +4,8 @@ import pandas as pd
 from datetime import date
 
 # 1. Podaci (izmišljene fakture)
-fakture = ["Paracetamol 500mg x20 | LOT: A1234 | EXP:03/2027 | kol: 10",
-           "Ibuprofen 400mg x30 | LOT: B5687 | EXP: 12/2026 | kol: 5",
-           "Vitamin C 1000mg x10 | LOT: C9002 | EXP: 06/2028 | kol: 8",
-           "Aspirin 500mg x20 | LOT: D3456 | EXP: 01/2027 | kol: 20",
-           "Cetirizin 10mg x20 | LOT: E7788 | EXP: 09/2026 | kol: 6",
-           "Amoksicilin 500mg x16 | LOT: F1111 | kol: 4",
-           "Ibuprofen 200mg x30 | LOT: G2222 | EXP: 5/2027 | kol: 3"]
-
+with open("fakture.txt", encoding="utf-8") as f:
+    fakture = f.read().splitlines()
 
 # 2. Funkcija: čita jedan red fakture i vraća rečnik
 def procitaj_red(red):
